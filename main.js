@@ -35,30 +35,20 @@ check.addEventListener("click", function () {
     displayGuessingText("Correcr Answer ✔");
     correctAns.textContent = SECRET_NUMBER;
     // correctAns.style.backgroundColor = "#28a745";
+
     correctAns.style.boxShadow =
       " 2rem 2rem 2rem rgba(0, 0, 0, 0.1), -0.5rem -1rem 2rem rgba(0, 0, 0, 0.1)";
     document.body.style.backgroundColor = "teal";
     guessingText.style.color = "#28a745";
-    gameTitle.style.color = "teal";
+    gameTitle.style.color = "#dc3545";
     gameTitle.textContent = "Congratulations 🏆";
     gameTitle.style.textShadow = "4px 6px rgba(0, 0, 0, 0.8)";
-    input.value = " ";
-    input.style.display = "none";
-    between.style.display = "none";
+    input.style.visibility = "hidden";
+    check.style.visibility = "hidden";
     if (SCORE > HIGH_SCORE) {
       HIGH_SCORE = SCORE;
       highScore.textContent = HIGH_SCORE;
     }
-    // check for win & play again alert
-    check.addEventListener("click", function () {
-      gameTitle.textContent = "Click Play Again";
-      gameTitle.style.color = "#eaeaea";
-      guessingText.textContent = "Start a new game";
-      guessingText.style.color = "#dc3545";
-      correctAns.style.color = "#dc3545";
-      correctAns.textContent = "❌";
-      score.value = "";
-    });
   }
   // when gues is wrong
   else if (inputNumer !== SECRET_NUMBER) {
@@ -83,6 +73,8 @@ palyAgain.addEventListener("click", function () {
   displayGuessingText("Start Guessing...");
   document.body.style.backgroundColor = "#222";
   correctAns.style.backgroundColor = "teal";
+  input.style.visibility = "visible";
+  check.style.visibility = "visible";
   input.value = " ";
   correctAns.textContent = "?";
   score.textContent = SCORE;
